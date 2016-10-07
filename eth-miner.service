@@ -1,0 +1,20 @@
+[Unit]
+Description=Mine Ether
+
+[Service]
+Environment=GPU_FORCE_64BIT_PTR=0
+Environment=GPU_MAX_HEAP_SIZE=100
+Environment=GPU_USE_SYNC_OBJECTS=1
+Environment=GPU_MAX_ALLOC_PERCENT=100
+Environment=GPU_SINGLE_ALLOC_PERCENT=100
+
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/YOURUSERNAME/.Xauthority
+
+WorkingDirectory=/home/YOURUSERNAME/
+ExecStart=/bin/bash --login -c "ethminer -G --farm-recheck 200 -F http://127.0.0.1:8080/NAMEOFTHISRIG"
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

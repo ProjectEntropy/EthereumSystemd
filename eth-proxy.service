@@ -1,0 +1,11 @@
+[Unit]
+Description=Ether Proxy
+
+[Service]
+WorkingDirectory=/home/YOURUSERNAME/bin/eth-proxy
+ExecStart=/bin/bash --login -c "python eth-proxy.py"
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
